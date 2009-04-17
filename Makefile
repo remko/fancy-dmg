@@ -11,7 +11,7 @@
 #
 # Remko Troncon 
 # http://el-tramo.be/about
-#
+# Licensed under the MIT License. See COPYING for details.
 
 
 ################################################################################
@@ -45,7 +45,7 @@ $(TEMPLATE_DMG).bz2:
 	@echo
 	@echo --------------------- Generating empty template --------------------
 	mkdir template
-	hdiutil create -size 40m "$(TEMPLATE_DMG)" -srcfolder template -format UDRW -volname "$(NAME)" -quiet
+	hdiutil create -fs HFSX -layout SPUD -size 40m "$(TEMPLATE_DMG)" -srcfolder template -format UDRW -volname "$(NAME)" -quiet
 	rmdir template
 	bzip2 "$(TEMPLATE_DMG)"
 	@echo
