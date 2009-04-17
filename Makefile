@@ -18,13 +18,13 @@
 # Customizable variables
 ################################################################################
 
-NAME=MyApp
-VERSION=0.1
+NAME ?= MyApp
+VERSION ?= 0.1
 
-SOURCE_DIR=src
-SOURCE_FILES=MyApp.app README COPYING
+SOURCE_DIR ?= src
+SOURCE_FILES ?= MyApp.app README COPYING
 
-TEMPLATE_DMG=template.dmg
+TEMPLATE_DMG ?= template.dmg
 
 
 ################################################################################
