@@ -9,7 +9,7 @@
 # your style. The contents of the files themselves does not matter, so
 # they can be empty (they will be overwritten later). 
 #
-# Remko Troncon 
+# Remko Tronçon 
 # http://el-tramo.be/about
 # Licensed under the MIT License. See COPYING for details.
 
