@@ -32,7 +32,7 @@ TEMPLATE_DMG ?= template.dmg
 ################################################################################
 
 MASTER_DMG=$(NAME)-$(VERSION).dmg
-WC_DMG=wc.dmg
+WC_DMG=wc$(suffix $(TEMPLATE_DMG))
 WC_DIR=wc
 
 .PHONY: all
