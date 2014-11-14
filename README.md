@@ -4,5 +4,5 @@
 
 This is a `Makefile` to help create fancy DMG images.
 More information about usage etc. can be found
-in the [Building Fancy DMG Images](http://el-tramo.be/guides/fancy-dmg/)
+in the [Building Fancy DMG Images](https://el-tramo.be/guides/fancy-dmg/)
 guide.

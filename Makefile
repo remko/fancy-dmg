@@ -10,7 +10,7 @@
 # they can be empty (they will be overwritten later). 
 #
 # Remko Tronçon 
-# http://el-tramo.be/about
+# https://el-tramo.be
 # Licensed under the MIT License. See COPYING for details.
 
 
