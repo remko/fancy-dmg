@@ -26,7 +26,7 @@ SOURCE_DIR ?= src
 SOURCE_FILES ?= MyApp.app README COPYING
 
 TEMPLATE_DMG ?= template.dmg
-
+TEMPLATE_SIZE ?= 40m
 
 ################################################################################
 # DMG building. No editing should be needed beyond this point.
@@ -46,7 +46,7 @@ $(TEMPLATE_DMG).bz2:
 	@echo
 	@echo --------------------- Generating empty template --------------------
 	mkdir template
-	hdiutil create -fs HFSX -layout SPUD -size 40m "$(TEMPLATE_DMG)" -srcfolder template -format UDRW -volname "$(NAME)" -quiet
+	hdiutil create -fs HFSX -layout SPUD -size $(TEMPLATE_SIZE) "$(TEMPLATE_DMG)" -srcfolder template -format UDRW -volname "$(NAME)" -quiet
 	rmdir template
 	bzip2 "$(TEMPLATE_DMG)"
 	@echo
