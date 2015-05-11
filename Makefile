@@ -20,6 +20,7 @@
 
 NAME ?= MyApp
 VERSION ?= 0.1
+VOLNAME ?= $(NAME) $(VERSION)
 
 SOURCE_DIR ?= src
 SOURCE_FILES ?= MyApp.app README COPYING
@@ -32,7 +33,7 @@ TEMPLATE_SIZE ?= 40m
 ################################################################################
 
 MASTER_DMG=$(NAME)-$(VERSION).dmg
-WC_DMG=wc.dmg
+WC_DMG=wc$(suffix $(TEMPLATE_DMG))
 WC_DIR=wc
 
 .PHONY: all
@@ -64,6 +65,9 @@ $(MASTER_DMG): $(WC_DMG) $(addprefix $(SOURCE_DIR)/,$(SOURCE_FILES))
 	done
 	#rm -f "$@"
 	#hdiutil create -srcfolder "$(WC_DIR)" -format UDZO -imagekey zlib-level=9 "$@" -volname "$(NAME) $(VERSION)" -scrub -quiet
+	WC_DEV=`hdiutil info | grep "$(WC_DIR)" | grep "Apple_HFS" | awk '{print $$1}'` && \
+	WC_VOLNAME=`diskutil info $$WC_DEV | grep "Volume Name" | awk -F : '{gsub(/^[ \t]+/,"",$$2)}{print $$2}'` && \
+	diskutil rename "$$WC_VOLNAME" "$(VOLNAME)"
 	WC_DEV=`hdiutil info | grep "$(WC_DIR)" | grep "Apple_HFS" | awk '{print $$1}'` && \
 	hdiutil detach $$WC_DEV -quiet -force
 	rm -f "$(MASTER_DMG)"
